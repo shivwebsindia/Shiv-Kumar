@@ -1,0 +1,27 @@
+# =============================================================================
+# ShivWebsIndia.com — Public Document Root .htaccess (Hostinger / cPanel Apache)
+# =============================================================================
+
+Options -Indexes -MultiViews
+RewriteEngine On
+
+# Force HTTPS in production
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Block direct script execution inside /uploads/
+RewriteRule ^uploads/.*\.(php|php[0-9]|phtml|pl|py|jsp|asp|htm|html|sh|cgi)$ - [F,L,NC]
+
+# Route all non-static requests to front controller index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

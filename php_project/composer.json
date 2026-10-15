@@ -1,0 +1,23 @@
+{
+  "name": "shivwebsindia/cms-website",
+  "description": "Complete Dynamic Business Website and CMS for ShivWebsIndia.com (PHP 8.x & MySQL InnoDB utf8mb4)",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": ">=8.1",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "ext-fileinfo": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}

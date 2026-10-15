@@ -1,0 +1,329 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-navy: #0A2540;
+    --brand-orange: #FF6A00;
+    --brand-red: #8B1E1E;
+    --brand-maroon: #522c2a;
+    --brand-bg: #F5F7FA;
+    --brand-white: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0A2540;
+    background-color: #F5F7FA;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.agency-card-hover {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agency-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -12px rgba(10, 37, 64, 0.14);
+}
+
+.btn-hover-lift {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 180ms ease,
+              box-shadow 180ms ease;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hover-lift:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SHIVWEBSINDIA.COM EXACT LIVE INTERFACE STYLES
+   ========================================================================== */
+
+/* 1. Indian Tricolor Infinite Scroll Marquee (.scroll-menu) */
+.swi-scroll-menu {
+  width: 100%;
+  background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #128807 100%);
+  border-bottom: 2px solid #FF9933;
+  overflow: hidden;
+}
+
+.swi-scroll-track {
+  display: flex;
+  gap: 12px;
+  padding: 11px 0;
+  width: max-content;
+  animation: swiScrollLoop 35s linear infinite;
+}
+
+.swi-scroll-menu:hover .swi-scroll-track {
+  animation-play-state: paused;
+}
+
+.swi-scroll-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #ddd;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.swi-scroll-item:hover {
+  background: #FF9933;
+  border-color: #FF9933;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.swi-scroll-item.active {
+  background: linear-gradient(90deg, #FF9933, #FFFFFF, #128807);
+  color: #000080;
+  border-color: #000080;
+  font-weight: 700;
+  animation: swiGlowBlink 1.5s infinite;
+}
+
+.swi-scroll-item.active::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  background: linear-gradient(#FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #128807 66.66%);
+  border: 1px solid #ccc;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes swiGlowBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(0, 0, 128, 0.45);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+    box-shadow: 0 0 12px #FF9933, 0 0 16px #128807;
+  }
+}
+
+@keyframes swiScrollLoop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 2. Centered SEO Hero Headline (.swi-hero-intro) */
+.swi-hero-divider {
+  margin: 18px auto;
+  width: 120px;
+  height: 4px;
+  background: #2f6fed;
+  border-radius: 10px;
+  position: relative;
+}
+
+.swi-hero-divider::before {
+  content: "•••";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #2f6fed;
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+
+/* 3. Maroon-to-Dark Stats Bar (.swi-stats-card) */
+.swi-stats-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #522c2a, #1a1a1a);
+  border-radius: 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 992px) {
+  .swi-stats-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .swi-stats-card {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+}
+
+.swi-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.swi-stat-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(63, 173, 232, 0.45), transparent);
+  transition: 0.6s;
+}
+
+.swi-stat-item:hover::before {
+  left: 100%;
+}
+
+.swi-stat-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(63, 173, 232, 0.3);
+}
+
+.swi-stat-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #3fade8, #fc1912);
+  color: #fff;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+.swi-stat-item:hover .swi-stat-icon {
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* 4. Portfolio Overlay Cards (.swi-project-card) */
+.swi-project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  background: #ffffff;
+}
+
+.swi-project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(13, 110, 253, 0.16);
+}
+
+.swi-project-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: all 0.6s ease;
+}
+
+.swi-project-card:hover img {
+  transform: scale(1.1);
+}
+
+.swi-project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 37, 64, 0.94), rgba(10, 37, 64, 0.25));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: 0.35s ease;
+}
+
+.swi-project-card:hover .swi-project-overlay {
+  opacity: 1;
+}
+
+/* Always show subtle bottom bar on mobile or non-hover */
+@media (max-width: 768px) {
+  .swi-project-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.1));
+  }
+}
+
+/* 5. Working Process Animated Arrow & Card */
+@keyframes swiArrowMove {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(7px);
+  }
+}
+
+.swi-process-arrow {
+  animation: swiArrowMove 1.5s infinite;
+}
+
+/* 6. Technology Infinite Slider */
+.swi-tech-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: swiScrollLoop 28s linear infinite;
+}
+
+.swi-tech-slider:hover .swi-tech-track {
+  animation-play-state: paused;
+}
